@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.22)  23 DEC 2023 09:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.22)  23 DEC 2023 10:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -930,28 +930,43 @@ Underfull \hbox (badness 4001) in paragraph at lines 166--168
 \T2A/cmr/m/n/14.4 прогнозов моделей машинного обучения, работающих в реальных
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+[]\T2A/cmr/m/n/14.4 Получена работающая методика, отвечающая требованиям
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+\T2A/cmr/m/n/14.4 руководителя. Изучен ряд методов для поиска аномалий.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+\T2A/cmr/m/n/14.4 Код, написанный для решения задачи, можно найти по URL:
+ []
+
 [7
 
 ] [8]
-Underfull \hbox (badness 4660) in paragraph at lines 182--183
+Underfull \hbox (badness 4660) in paragraph at lines 183--184
 []\T2A/cmr/m/n/14.4 Производственная практика ќ1 (научно-исследовательская рабо
 та)
  []
 
 
-Underfull \hbox (badness 1946) in paragraph at lines 184--187
+Underfull \hbox (badness 1946) in paragraph at lines 185--188
 []\T2A/cmr/m/n/14.4 Основным результатом прохождения практики стала разработанн
 ая
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 193--194
+Underfull \hbox (badness 1028) in paragraph at lines 194--195
 []\T2A/cmr/bx/n/14.4 освоена технология \T2A/cmr/m/n/14.4 STL, позволяющая иска
 ть аномалии методом
  []
 
 
-Underfull \hbox (badness 3758) in paragraph at lines 194--195
+Underfull \hbox (badness 3758) in paragraph at lines 195--196
 []\T2A/cmr/bx/n/14.4 приобретен опыт \T2A/cmr/m/n/14.4 разработки на Python и п
 оиска аномалий с
  []
@@ -966,10 +981,10 @@ Package rerunfilecheck Info: File `РћС‚С‡РµС‚_С€Р°Р±Р»РѕРЅ.out' has not changed
 (rerunfilecheck)             Checksum: 577E5FF9F04A2A07ABB5A76C7A5F7822;5753.
  ) 
 Here is how much of TeX's memory you used:
- 15551 strings out of 477985
- 247964 string characters out of 5840057
+ 15552 strings out of 477985
+ 247982 string characters out of 5840057
  1863388 words of memory out of 5000000
- 35485 multiletter control sequences out of 15000+600000
+ 35486 multiletter control sequences out of 15000+600000
  526174 words of font info for 58 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,8n,90p,858b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -981,7 +996,7 @@ m-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm144
 re/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/f
 onts/type1/public/cm-super/sftt1440.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/cm-super/sfxc2074.pfb>
-Output written on РћС‚С‡РµС‚_С€Р°Р±Р»РѕРЅ.pdf (10 pages, 176639 bytes).
+Output written on РћС‚С‡РµС‚_С€Р°Р±Р»РѕРЅ.pdf (10 pages, 177898 bytes).
 PDF statistics:
  219 PDF objects out of 1000 (max. 8388607)
  174 compressed objects within 2 object streams
