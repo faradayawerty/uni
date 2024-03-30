@@ -7,7 +7,7 @@ CANVAS_HEIGHT = 600
 POINT_RADIUS = 4
 
 root = Tk()
-canvas = None
+canvas = Canvas(bg="white", width=800, height=600)
 
 points = {
 	'A': complex(randint(0, CANVAS_WIDTH), randint(0, CANVAS_HEIGHT)),
@@ -62,25 +62,24 @@ def calculate():
 
 	canvas.delete('text')
 	if CA_cross_BA * DA_cross_BA < 0 and AC_cross_DC * BC_cross_DC < 0:
-		canvas.create_text(128, 64, fill="darkblue", text=f"пересекаются", tag='text')
+		canvas.create_text(128, 128, fill="darkblue", text=f"пересекаются", tag='text')
 		print('пересекаются')
 	else:
-		canvas.create_text(128, 64, fill="darkblue", text=f"не пересекаются", tag='text')
+		canvas.create_text(128, 128, fill="darkblue", text=f"не пересекаются", tag='text')
 		print('не пересекаются')
 
 	print()
 
 def main():
 	canvas.create_text(256, 32, fill="darkblue", text=f"инструкция:\n\tвы можете перемещать точки, спользуя лкм\n\tзадать случаное положение точек - пкм")
+	root.title("Лабораторная #2: пересечение отрезков")
+	root.geometry("1366x768")
 	calculate()
 	canvas.bind("<B1-Motion>", move_point)
 	canvas.bind("<Button-3>", reset_points)
-
-if __name__ == '__main__':
-	root.title("Лабораторная #2: пересечение отрезков")
-	root.geometry("1366x768")
-	canvas = Canvas(bg="white", width=800, height=600)
-	main()
 	canvas.pack(anchor=CENTER, expand=1)
 	root.mainloop()
+
+if __name__ == '__main__':
+	main()
 
