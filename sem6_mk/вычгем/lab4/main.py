@@ -15,7 +15,7 @@ def create_point(event):
 	calculate()
 
 def delete_point(event):
-	if len(points) < 4:
+	if len(points) < 5:
 		return
 	points.pop()
 	canvas.delete('all')
@@ -36,46 +36,70 @@ def move_point(event):
 	canvas.move(closest, event.x - x, event.y - y)
 	calculate()
 
-def cross(A, B, C):
-	AB, BC  = B - A, C - B
-	return (AB.conjugate() * BC).imag
+def cross(A, B):
+	return (A.conjugate() * B).imag
+
+def sign(x):
+	if x > 0:
+		return 1
+	elif x < 0:
+		return -1
+	return 0
 
 def calculate():
 
+	color = 'yellow'
+	radius_scale = 2
 	for k, v in enumerate(points):
 		canvas.delete(f'P{k}')
-		canvas.create_oval(v.real, v.imag, v.real + 2 * POINT_RADIUS, v.imag + 2 * POINT_RADIUS, fill="blue", tag=f'P{k}')
+		canvas.create_oval(v.real, v.imag, v.real + 2 * POINT_RADIUS * radius_scale, v.imag + 2 * POINT_RADIUS * radius_scale, fill=color, tag=f'P{k}')
+		color = 'blue'
+		radius_scale = 1
 
-	previous = points[0]
-	for k, v in enumerate(points[1:] + [points[0]]):
+	previous = points[1]
+	for k, v in enumerate(points[2:] + [points[1]]):
 		canvas.delete(f'L{k}')
 		canvas.create_line(v.real + POINT_RADIUS, v.imag + POINT_RADIUS, previous.real + POINT_RADIUS, previous.imag + POINT_RADIUS, fill="red", width=4, tag=f'L{k}')
 		previous = v
 
-	N = len(points)
-	all_positive, all_negative = True, True
-	for i in range(N + 3):
-		cross_product = cross(points[i % N], points[(i + 1) % N], points[(i + 2) % N])
-		print(cross_product)
-		all_positive = all_positive and (cross_product >= 0)
-		all_negative = all_negative and (cross_product <= 0)
+	N = len(points[1:])
+
+	O = complex(0, 0)
+	for point in points[1:]:
+		O += point
+	O = O / N
+
+	# https://en.wikipedia.org/wiki/Shoelace_formula
+	area = 0
+	for i in range(N + 1):
+		P1, P2 = points[1:][i % N], points[1:][(i + 1) % N]
+		area += 0.5 * cross(P1, P2)
+
+	Q = points[0] - O
+	centered_points = [P - O for P in points[1:]]
+
+	if sign(area) > 0:
+		centered_points.reverse()
+
+	inside_polygon = False
+	for i in range(N + 1):
+		P1, P2 = centered_points[i % N], centered_points[(i + 1) % N]
+		inside_triangle = (cross(P2 - P1, Q) > 0) and (cross(P1, Q) * cross(P2, Q) < 0) and (cross(P2 - P1, Q - P1) < 0)
+		inside_polygon = inside_polygon or inside_triangle
 
 	canvas.delete('text')
-	if all_positive or all_negative:
-		canvas.create_text(128, 128, fill='darkblue', text='выпуклый', tag='text')
-		print('выпуклый')
+	if inside_polygon:
+		canvas.create_text(128, 128, fill='darkblue', text='внутри', tag='text')
 	else:
-		canvas.create_text(128, 128, fill='darkblue', text='не выпуклый', tag='text')
-		print('не выпуклый')
-	print()
+		canvas.create_text(128, 128, fill='darkblue', text='снаружи', tag='text')
+
 
 def draw_info():
 	canvas.delete('info')
 	canvas.create_text(256, 64, fill='darkblue', text='инструкция:\n\tнажмите пкм чтобы создать точку\n\tнажмите скм чтобы удалить последнюю созданную точку\n\tвы можете перемещать точки используя лкм', tag='info')
-		
 	
 def main():
-	root.title("Лабораторная #3: выпуклый многоугольник")
+	root.title("Лабораторная #4: точка в многоугольнике")
 	root.geometry("1366x768")
 	draw_info()
 	calculate()
