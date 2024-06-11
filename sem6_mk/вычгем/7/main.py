@@ -1,4 +1,6 @@
 
+# https://docs.google.com/presentation/d/12VpkUbnivlViQQeAK17OX4BeToQXPVEvBjP2IJ7_d4Q/edit?usp=drivesdk
+
 from random import randint, randrange
 from operator import itemgetter, attrgetter
 from time import sleep
